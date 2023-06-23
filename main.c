@@ -3,11 +3,11 @@
 typedef unsigned long long ull;
 
 int PC1[] = {
-		57, 49, 41, 33, 25, 17, 9, 1, 58, 50, 42, 34, 26, 18,
-		10, 2, 59, 51, 43, 35, 27, 19, 11, 3, 60, 52, 44, 36,
-		63, 55, 47, 39, 31, 23, 15, 7, 62, 54, 46, 38, 30, 22,
-		14, 6, 61, 53, 45, 37, 29, 21, 13, 5, 28, 20, 12, 4
-  };
+	57, 49, 41, 33, 25, 17, 9, 1, 58, 50, 42, 34, 26, 18,
+	10, 2, 59, 51, 43, 35, 27, 19, 11, 3, 60, 52, 44, 36,
+	63, 55, 47, 39, 31, 23, 15, 7, 62, 54, 46, 38, 30, 22,
+	14, 6, 61, 53, 45, 37, 29, 21, 13, 5, 28, 20, 12, 4
+};
 
 int PC2[] = {
 	14, 17, 11, 24, 1, 5, 3, 28, 15, 6, 21, 10,
@@ -113,7 +113,7 @@ unsigned long long transpose(int n, int *mat, unsigned long long i)
 unsigned char upplow6(char i) 
 {
 	char u = ((1 << 5) & i) > 0,
-			 l = 1 & i;
+		l = 1 & i;
 	return (u << 1) | l;
 }
 
@@ -180,7 +180,7 @@ int main(void)
 
 	// Encryption
 	e = transpose(64, IP, p);
-	l = (e >> 32) & 0xffffffff;	r = e & 0xffffffff;
+	l = (e >> 32) & 0xffffffff; r = e & 0xffffffff;
 	generate_subkey(k, subkeys);
 	for (int i = 0; i < 16; i++)
 	{
@@ -194,7 +194,7 @@ int main(void)
 
 	// Decryption
 	e = transpose(64, IP, e);
-	l = (e >> 32) & 0xffffffff;	r = e & 0xffffffff;
+	l = (e >> 32) & 0xffffffff; r = e & 0xffffffff;
 	generate_subkey(k, subkeys);
 	for (int i = 15; i >= 0; i--)
 	{
