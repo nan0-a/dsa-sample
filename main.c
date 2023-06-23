@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdint.h>
 
 typedef unsigned long long ull;
 
@@ -160,7 +159,7 @@ ull ls28(int shift, ull i)
 void generate_subkey(ull k, ull sk[16])
 {
 	unsigned long u = (k >> 28) & 0xfffffff,
-								l = k & 0xfffffff;
+		l = k & 0xfffffff;
 	for (int i = 0; i < 16; i++)
 	{
 		u = ls28(SHIFT[i], u); l = ls28(SHIFT[i], l);
@@ -172,8 +171,8 @@ void generate_subkey(ull k, ull sk[16])
 int main(void) 
 {
 	unsigned long long k = 96879068344332761, 
-							p = 432524459283423, 
-							e;
+		p = 432524459283423, 
+		e;
 	unsigned long l, r;
 	ull subkeys[16];
 
